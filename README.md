@@ -35,7 +35,7 @@
 ## 📥 快速开始
 
 ### 1. 环境准备
-确保你的本地环境或云主机已安装 [Node.js](https://nodejs.org/) (推荐 v18+)。
+本项目经过特别优化，完美支持 **Node.js 18 (LTS)** 及以上版本，无需升级即可在大多数云主机（如华为云 ECS）上直接运行。
 
 ### 2. 克隆项目
 ```bash
@@ -45,23 +45,39 @@ cd cloud-vote
 
 ### 3. 启动应用
 
-你可以分别启动前后端服务：
+我们需要分别启动后端 API 和前端页面。
 
-**启动后端 API 服务 (端口 3000)**
+#### 🟢 启动后端 (Server)
 ```bash
 cd server
 npm install
+# 启动服务 (默认端口 3000)
 npm run dev
 ```
+> **💡 小贴士**: 如果在 Linux 上遇到 `permission denied` 错误，可以使用 `npx nodemon index.js` 或直接运行 `node index.js`。
 
-**启动前端页面 (端口 5173)**
+#### 🔵 启动前端 (Client)
+新建一个终端窗口，执行：
 ```bash
 cd client
+# ⚠️ 注意：每次拉取新代码后，建议先清理旧依赖
+rm -rf node_modules package-lock.json
+
 npm install
+# 启动开发预览 (默认端口 5173)
 npm run dev
 ```
 
-打开浏览器访问 `http://localhost:5173` 即可开始使用！
+### 4. 访问
+打开浏览器访问：[http://localhost:5173](http://localhost:5173)
+
+## ❓ 常见问题
+
+- **Q: 为什么报错 `uv_cwd`?**
+  - A:这通常是因为你所在的目录被删除了。请执行 `cd ..` 回到上级目录，再重新进入即可。
+  
+- **Q: 前端依赖报错?**
+  - A: 确保已降级到兼容 Node 18 的版本（本项目已默认配置好），并尝试删除 `node_modules` 重装。
 
 ## 📂 目录结构
 
