@@ -1,0 +1,31 @@
+{
+    "polls": [
+        {
+            "id": "demo-01",
+            "title": "Which programming language is your favorite?",
+            "options": [
+                {
+                    "id": 0,
+                    "text": "TypeScript / JavaScript",
+                    "votes": 12
+                },
+                {
+                    "id": 1,
+                    "text": "Python",
+                    "votes": 8
+                },
+                {
+                    "id": 2,
+                    "text": "Rust",
+                    "votes": 15
+                },
+                {
+                    "id": 3,
+                    "text": "Go",
+                    "votes": 6
+                }
+            ],
+            "createdAt": 1705152000000
+        }
+    ]
+}
