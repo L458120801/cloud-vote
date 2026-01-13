@@ -1,9 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Home() {
     const [joinId, setJoinId] = useState('');
+    const [recentPolls, setRecentPolls] = useState<{ id: string, title: string }[]>([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Determine API URL based on environment
+        const apiUrl = window.location.hostname === 'localhost'
+            ? 'http://localhost:3000'
+            : `${window.location.protocol}//${window.location.hostname}:3000`;
+
+        axios.get(`${apiUrl}/api/polls`)
+            .then(res => setRecentPolls(res.data.slice(0, 3)))
+            .catch(err => console.error(err));
+    }, []);
 
     const handleJoin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,7 +34,7 @@ export default function Home() {
                 </p>
             </div>
 
-            <div className="glass-card" style={{ width: '100%', maxWidth: '400px' }}>
+            <div className="glass-card" style={{ width: '100%', maxWidth: '400px', marginBottom: '2rem' }}>
                 <h2 style={{ marginBottom: '1.5rem', textAlign: 'center' }}>Get Started</h2>
 
                 <button
@@ -55,6 +68,31 @@ export default function Home() {
                     </button>
                 </form>
             </div>
+
+            {recentPolls.length > 0 && (
+                <div style={{ width: '100%', maxWidth: '600px' }}>
+                    <h3 style={{ color: 'var(--text-secondary)', marginBottom: '1rem', textAlign: 'center' }}>🔥 Featured Demos</h3>
+                    <div style={{ display: 'grid', gap: '1rem' }}>
+                        {recentPolls.map(poll => (
+                            <div
+                                key={poll.id}
+                                className="glass-card"
+                                style={{
+                                    padding: '1rem',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => navigate(`/result/${poll.id}`)}
+                            >
+                                <span style={{ fontWeight: 500 }}>{poll.title}</span>
+                                <span style={{ color: 'var(--accent-color)' }}>View →</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

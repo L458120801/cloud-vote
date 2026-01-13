@@ -7,12 +7,12 @@
                 {
                     "id": 0,
                     "text": "TypeScript / JavaScript",
-                    "votes": 12
+                    "votes": 42
                 },
                 {
                     "id": 1,
                     "text": "Python",
-                    "votes": 8
+                    "votes": 28
                 },
                 {
                     "id": 2,
@@ -22,10 +22,64 @@
                 {
                     "id": 3,
                     "text": "Go",
-                    "votes": 6
+                    "votes": 19
+                },
+                {
+                    "id": 4,
+                    "text": "Java",
+                    "votes": 12
                 }
             ],
             "createdAt": 1705152000000
+        },
+        {
+            "id": "team-lunch",
+            "title": "🍔 Where should we go for team lunch?",
+            "options": [
+                {
+                    "id": 0,
+                    "text": "Pizza Paradise",
+                    "votes": 5
+                },
+                {
+                    "id": 1,
+                    "text": "Sushi Spot",
+                    "votes": 8
+                },
+                {
+                    "id": 2,
+                    "text": "Burger Joint",
+                    "votes": 3
+                },
+                {
+                    "id": 3,
+                    "text": "Salad Bar (Healthy)",
+                    "votes": 1
+                }
+            ],
+            "createdAt": 1705152100000
+        },
+        {
+            "id": "tech-talk",
+            "title": "💡 Next Tech Talk Topic?",
+            "options": [
+                {
+                    "id": 0,
+                    "text": "AI Agents Architecture",
+                    "votes": 25
+                },
+                {
+                    "id": 1,
+                    "text": "React 19 New Features",
+                    "votes": 18
+                },
+                {
+                    "id": 2,
+                    "text": "Cloud Native Deployment",
+                    "votes": 12
+                }
+            ],
+            "createdAt": 1705152200000
         }
     ]
 }
